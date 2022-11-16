@@ -1,7 +1,10 @@
-a = input("Introdueix un número: ")
-if (int(a)>18):
-    print(a," és major de 18 anys")
-elif (int(a)<18):
-    print(a, "és menor de 18 anys")
-else:
-    print("Tens 18 anys!!")
+a=[1,2,4,8,32,64]
+i=0
+for c in a:
+    a[i]=c+1
+    print(a[i])
+    i+=1
+
+b=['h','o','l','a']
+for c in b:
+    print(c)
