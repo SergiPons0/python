@@ -114,31 +114,139 @@ def decimal_a_hexadecimal(decimal):
         decimal = int(decimal / 16)
     return hexadecimal
 
-def hexadecimal_a_decimal(hexadecimal):
-# Convertir a minúsculas para hacer las cosas más simples
-    hexadecimal = hexadecimal.lower()
-# La debemos recorrer del final al principio, así que la invertimos
-    hexadecimal = hexadecimal[::-1]
-    decimal = 0
-    posicion = 0
-    for digito in hexadecimal:
-# Necesitamos que nos dé un 10 para la A, un 9 para el 9, un 11 para la B, etcétera
-        valor = obtener_valor_real(digito)
-        elevado = 16 ** posicion
-        equivalencia = elevado * valor
-        decimal += equivalencia
-        posicion += 1
-    
-    return decimal
+def hex_to_binary(hex_number: str, num_digits: int = 8) -> str:
+    """
+    Converts a hexadecimal value into a string representation
+    of the corresponding binary value
+    Args:
+        hex_number: str hexadecimal value
+        num_digits: integer value for length of binary value.
+                    defaults to 8
+    Returns:
+        string representation of a binary number 0-padded
+        to a minimum length of <num_digits>
+    """
+    return str(bin(int(hex_number, 16)))[2:].zfill(num_digits)
+
+hex = "A12"
+ 
+c = counter = i = 0
+ 
+size = len(hex) - 1
+# loop will run till size
+while size >= 0:
+ 
+    if hex[size] >= '0' and hex[size] <= '9':
+        rem = int(hex[size])
+ 
+    elif hex[size] >= 'A' and hex[size] <= 'F':
+        rem = ord(hex[size]) - 55
+ 
+    elif hex[size] >= 'a' and hex[size] <= 'f':
+        rem = ord(hex[size]) - 87
+    else:
+        c = 1
+        break
+    counter = counter + (rem * (16 ** i))
+    size = size - 1
+    i = i+1
+ 
+ 
+print("Decimal Value = ", counter)
+
+def HexToOct(h):
+    return oct(int(h, 16))
+
+print("Enter Hexadecimal Number: ", end="")
+hnum = input()
+
+onum = HexToOct(hnum)
+print("\nEquivalent Octal Value = ", onum[2:])
 
 #Binari a
-def bintodecimal(binario):
-    numero_decimal= 0
-    for posicion, digito_string in enumerate(binario[::-1]) 
-    numero_decimal += int(digito_string) * 2 ** posicion
+def binaryToDecimal(binary):
+     
+    binary1 = binary
+    decimal, i, n = 0, 0, 0
+    while(binary != 0):
+        dec = binary % 10
+        decimal = decimal + dec * pow(2, i)
+        binary = binary//10
+        i += 1
+    print(decimal)   
+     
+ 
+# Driver code
+if __name__ == '__main__':
+    binaryToDecimal(100)
+    binaryToDecimal(101)
+    binaryToDecimal(1001)
+print("Enter a Binary Number: ", end="")
+bnum = input()
 
-    return numero_decimal     
-   
+onum = int(bnum, 2)
+onum = oct(onum)
+
+print("\nEquivalent Octal Value = ", onum)  
+
+def binToHexa(n):
+    bnum = int(n)
+    temp = 0
+    mul = 1
+      
+    # counter to check group of 4
+    count = 1
+      
+    # char array to store hexadecimal number
+    hexaDeciNum = ['0'] * 100
+      
+    # counter for hexadecimal number array
+    i = 0
+    while bnum != 0:
+        rem = bnum % 10
+        temp = temp + (rem*mul)
+          
+        # check if group of 4 completed
+        if count % 4 == 0:
+            
+            # check if temp < 10
+            if temp < 10:
+                hexaDeciNum[i] = chr(temp+48)
+            else:
+                hexaDeciNum[i] = chr(temp+55)
+            mul = 1
+            temp = 0
+            count = 1
+            i = i+1
+              
+        # group of 4 is not completed
+        else:
+            mul = mul*2
+            count = count+1
+        bnum = int(bnum/10)
+          
+    # check if at end the group of 4 is not
+    # completed
+    if count != 1:
+        hexaDeciNum[i] = chr(temp+48)
+          
+    # check at end the group of 4 is completed
+    if count == 1:
+        i = i-1
+          
+    # printing hexadecimal number
+    # array in reverse order
+    print("\n Hexadecimal equivalent of {}:  ".format(n), end="")
+    while i >= 0:
+        print(end=hexaDeciNum[i])
+        i = i-1
+  
+# Driver code
+if __name__ == '__main__':
+    binToHexa('1111')
+    binToHexa('110101')
+    binToHexa('100001111')
+    binToHexa('111101111011')
 
 def octal_a_decimal(octal):
     decimal = 0
@@ -155,6 +263,24 @@ def octal_a_decimal(octal):
     
     return decimal
 
+def OctToBin(o):
+    return bin(int(o, 8))
+
+print("Enter Octal Number: ", end="")
+onum = input()
+
+bnum = OctToBin(onum)
+print("\nEquivalent Binary Value =", bnum[2:])
+
+
+def OctToHex(o):
+    return hex(int(o, 8))
+
+print("Enter Octal Number: ", end="")
+onum = input()
+
+hnum = OctToHex(onum)
+print("\nEquivalent Hexadecimal Value =", hnum[2:].upper())
 
 
 # Programa principal de la calculadora
@@ -230,9 +356,9 @@ while(opcio!=0):
                     d=int(a,base=16)
                     print("El número ",a," en binari= ",b," en decimal= ",c," en hexadecimal= ",d)
                 case "3": # Decimal a
-                    b=dectobin(a,base=2)
-                    c=dectooctal(a,base=8)
-                    d=dectohex(a,base=16)
+                    b=int(a,base=2)
+                    c=int(a,base=8)
+                    d=int(a,base=16)
                     print("El número ",a," en binari= ",b," en octal= ",c," en hexadecimal= ",d)    
                 case "4": # Hexadecimal a
                     b=int(a,base=2)
