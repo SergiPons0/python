@@ -8,3 +8,16 @@ for c in a:
 b=['h','o','l','a']
 for c in b:
     print(c)
+
+
+a.append(128)
+print(a)
+
+b.extend(['P','e','r','e'])
+print(b)
+
+c = a + b
+print(c)
+
+c.insert(9,256)
+print(c)
