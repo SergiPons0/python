@@ -11,4 +11,4 @@ def gran(z,e):
 a=int(input("Numero 1: "))
 b=int(input("Numero 2: "))
 c=gran(a,b)
-print("El més gran val",c)
+print("El major de ",a, " i" ,b, " és ",c)
