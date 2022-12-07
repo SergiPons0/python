@@ -1,8 +1,16 @@
+def superposicio(a, b):
+        n = 0
+        for e in a:
+                n += b.count(e)
+        if n>0:
+                return[n, True]
+        else: 
+                return[0, False]
 
-if __name__ == '__main__':
-        first = [1,2,3,4]
-        second = [2,4,5,7]
-
-        common = set(first).intersection(second)
-
-print(common)
+a=input("Introduce la primera lista de elementos como un string, sin espacios: ")
+b=input("Introduce la segunda lista de elementos como un string, sin espacios: ")
+c, d = superposicio(a,b)
+if (c==0):
+        print("Las dos listas no tienen nada en comun ")
+else:
+        print("Las listas tienen ",c, " elementos en comun")
