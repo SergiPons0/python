@@ -1,11 +1,8 @@
 def invertir(a):
-   
-   llista=list(a)
-   a = llista[::-1]
-   # b = str(a)
-   return a
-
-a = ("Sergi calvito")
-b = invertir(a)
-for i in b:
-    print(i)
+   b= list(a)
+   c= b [::-1]
+   r = " " .join(c)
+   return r
+b=input("Introdueix una paraula: " )
+c = invertir(b)
+print( "La paraula",b," si la gireu és ", c)

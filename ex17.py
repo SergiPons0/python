@@ -1,10 +1,22 @@
-def es_palindrom(a):
-    a=texto 
-    texto = input("Ingrese una palabra: ").lower()
-    rever = a[::-1]
-    if a == rever:
-        print("La palabra ingresada si es palindromo!!")
+def invertir(a):
+   b= list(a)
+   c= b [::-1]
+   r = "" .join(c)
+   return r
+
+def palindromo(a):
+    c=invertir(a)
+    x= 0 
+    for i in range(len(a)):
+        if a[i] != c[i]:
+            x+=1
+    if x==0:
+        return True
     else:
-        print("La palabra ingresada no es palindromo!!")
+        return False
 
-
+a=input("Introduce una palabra: ")
+if palindromo(a):
+    print("es palindromo ")
+else: 
+    print("no es palindromo ")
