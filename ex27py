@@ -1,0 +1,9 @@
+anyactual = input("Any Actual:")
+b = []
+for i in range(4):
+    aux = []
+    aux.append(input("Nom"))
+    aux.append(input("Any"))
+    aux.append(anyactual-aux[1])
+    b.append(aux)
+ 
