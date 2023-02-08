@@ -15,5 +15,8 @@ def ncp(l,c):
         if e[0]== c:
             x+=1
             p.append(e)
-            
-    
+    print("El numero de paraules que començen {} per a són {} i són {}".format(c,x,p))
+
+a=llegir()
+x=input("Introduce el caracter que desea buscar: ")
+ncp(a,c)     
