@@ -8,7 +8,7 @@ def llegir():
     return tuple(llista)
 
 
-def mostrar_majors_que(a,num):
+def mostrar_major_que(a,num):
     for e in a:
         if e>num:
             print(e)
