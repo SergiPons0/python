@@ -1,3 +1,13 @@
+def llegir_llista():
+    ll=[]
+    for i in range(4):
+        v = []
+        v.append(input("Introdueix el nom: "))
+        v.append(input("" "l'any de naixement "))
+        ll.append(v)
+
+    return ll
+
 anyactual = input("Any Actual:")
 b = []
 for i in range(4):
@@ -6,4 +16,7 @@ for i in range(4):
     aux.append(input("Any"))
     aux.append(anyactual-aux[1])
     b.append(aux)
- 
+
+
+
+
